@@ -1,0 +1,207 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{#  todo: tytuł ogłoszenia, opis, rok produkcji, przebieg, pojemność, moc, zdjecie(wybierz plik),
+    todo: data publikacji, czy publikować #}
+{% block content %}
+
+    <h2 class="text-center"> Dodaj nowe ogłoszenie </h2>
+    <form action="/accounts/profile/addNotice/upload/" method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+        {# Pojedyncze pole       #}
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1 ">
+                <label for="title">Tytuł</label>
+                <input type="text" class="form-control" id="title" name="title"
+                       placeholder="Wprowadź tytuł" maxlength="50" required>
+            </div>
+        </div>
+
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <label for="description">Opis</label>
+                <input type="text" class="form-control" id="description" name="description"
+                       placeholder="Podaj opis" maxlength="100" required>
+            </div>
+        </div>
+
+         <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <label for="production_year">Rok produkcji</label>
+                <input type="number" class="form-control" id="production_year" name="production_year"
+                       placeholder="Podaj rok produkcji" required>
+            </div>
+        </div>
+
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <label for="mileage">Przebieg </label>
+                <input type="number" class="form-control" id="mileage" name="mileage"
+                       placeholder="Podaj przebieg" required>
+            </div>
+        </div>
+
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <label for="cubic_capacity">Pojemność silnika </label>
+                <input type="number" class="form-control" id="cubic_capacity" name="cubic_capacity"
+                       placeholder="Podaj pojemność silnika wyrażoną w cm3"
+                       required>
+            </div>
+        </div>
+
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <label for="horse_power">Moc silnika </label>
+                <input type="number" class="form-control" id="horse_power" name="horse_power"
+                       placeholder="Podaj moc silnika wyrażoną w koniach mechanicznych"
+                       required>
+            </div>
+        </div>
+
+        {#  ######### PALIWO ##########      #}
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <label for="fuel_type">Typ paliwa </label>
+{#                <input type="checkbox" class="form-control" id="fuel_type" name="fuel_type"#}
+{#                       placeholder="Wprowadź opis">#}
+                <select id="fuel_type" name="fuel_type">
+                    <option value="diesel">diesel</option>
+                    <option value="LPG">lpg</option>
+                    <option value="benzyna">benzyna</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <label for="price"> Cena </label>
+                <input type="number" class="form-control" id="price" name="price"
+                       placeholder="Podaj cenę w zł" required>
+            </div>
+        </div>
+
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <label for="picture">Zdjęcie </label>
+                <input type="file" class="form-control" id="picture" name="picture"
+                       required>
+            </div>
+        </div>
+
+        <div class="p-1 d-flex justify-content-center">
+            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">
+                <div>
+                    <input type="checkbox" class="" id="is_publicated" name="is_publicated">
+                    <label for="is_publicated">Opublikować ogłoszenie? </label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-flex  justify-content-center">
+            <button type="submit" class="btn btn-primary">Wyślij</button>
+        </div>
+
+    </form>
+
+{% endblock %}
+
+
+
+
+
+
+{# ################ FRESH AFTER MODS #}
+ {#        <div class="p-5 d-flex flex-column">#}
+
+        {#  <div class="form-group">#}
+        {#    <label for="exampleInputPassword1">Password</label>#}
+        {#    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">#}
+        {#  </div>#}
+        {#  <div class="form-check">#}
+        {#    <input type="checkbox" class="form-check-input" id="exampleCheck1">#}
+        {#    <label class="form-check-label" for="exampleCheck1">Check me out</label>#}
+        {#  </div>#}
+
+        {#        </div>#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{# ##################### OLD CODE ################################# #}
+{##}
+{#    <div class="text-center d-flex justify-content-center p-5 m-5 ">#}
+{#        <div class="p-5 pt-0">#}
+{#             <h2>Dodaj nowe ogłoszenie</h2>#}
+{#                <form action="/accounts/profile/addNotice/upload/" method="post"#}
+{#               enctype="multipart/form-data" class="d-flex flex-column m-5 p-5 pt-0">#}
+{#                 {% csrf_token %}#}
+{#                    <div class="d-flex flex-column ">#}
+{#                        {{ form }}#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                         <label for="id_username" > Podaj tytuł: </label>#}
+{#                         <input id="id_username" type="text" name="title">#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                         <label for="id_username" > Podaj tytuł: </label>#}
+{#                         <input id="id_username" type="text" name="title">#}
+{#                    </div>#}
+{##}
+{#                    <button type="submit" class="btn-primary m-3">Dodaj</button>#}
+{#                    <strong> Pola oznaczone gwiazdką są obowiązkowe !</strong>#}
+{#         </form>#}
+{#         </div>#}
+{##}
+{#    </div>#}
+
+{#{% block content %}#}
+{#    <div class="d-flex justify-content-center flex-column">#}
+{#    <div class="d-flex flex-column">#}
+{#        <h2> Dodaj nowe ogłoszenie </h2>#}
+{#        <form action="/accounts/profile/addNotice/upload/" method="post" enctype="multipart/form-data">#}
+{#        <form action="{% url 'uploadNotice' %}" method="post" enctype="multipart/form-data"#}
+{#        class="">#}
+{#            <label for="title"> Tytuł ogłoszenia: </label>#}
+{#            <input id="title" type="text" name="title">#}
+{#            <label for="description"> Opis: </label>#}
+{#            <input id="description" type="text" name="description">#}
+{#            <label for="production_year"> Rok produkcji: </label>#}
+{#            <input id="production_year" number="text" name="production_year">#}
+{#            <label for="mileage"> Przebieg: </label>#}
+{#            <input id="mileage" type="number" name="mileage">#}
+{#            <label for="cubic_capacity"> Pojemność: </label>#}
+{#            <input id="cubic_capacity" type="number" name="cubic_capacity">#}
+{#            <label for="horse_power"> Moc: </label>#}
+{#            <input id="horse_power" type="number" name="horse_power">#}
+{#            <label for="fuel_type"> Moc: </label>#}
+{#            <input id="fuel_type" type="checkbox" name="fuel_type">#}
+{#            <label for="picture"> Zdjęcie: </label>#}
+{#            <input id="picture" type="file" name="picture">#}
+{#            <label for="date_published"> Data publikacji: </label>#}
+{#            <input id="date_published" type="datetime-local" name="date_published">#}
+{#            <label for="is_publicated"> Czy publikować? </label>#}
+{#            <input id="is_publicated" type="checkbox" name="is_publicated">#}
+{##}
+{#    </div>#}
+{##}
+{##}
+{#            <button type="submit" class="btn-primary m-1"> Wyślij </button>#}
+{#        </form>#}
+{#    </div>#}
+{##}
+{##}
+{#{% endblock %}#}

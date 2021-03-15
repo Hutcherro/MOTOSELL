@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body > *{
+    /*border: 0.1px solid black;*/
+}
+html, body {
+    height: 100%;
+}
+.navbar {
+    color: white;
+    font-size: 1.5em;
+}
+/*header {*/
+/*    max-height: 20vh;*/
+/*}*/
+main {
+    color: black;
+     min-height: 80vh;
+    /*height: 200px;*/
+}
+/*footer {*/
+/*    max-height: 20vh;*/
+/*}*/
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+}
+a:hover {
+    background-color: black;
+    color: white;
+    /* text-decoration: underline; */
+}
+.nav-link:hover {
+    background-color: aqua;
+    color: black;
+}
+.nav-link {
+    color:white;
+}
+.view-more {
+    padding-left: 10px;
+    font-size: 1em;
+}
+/* CURRENT ITEM */
+.current-item {
+    font-size: 40px;
+}
+
+@media (max-width: 772px) {
+  .notice {
+    display: block;
+    flex-direction: column;
+  }
+    img {
+        width: 100px;
+    }
+}
+
+
+
+
+
+
+
+/*footer {*/
+/*    position: absolute;*/
+/*    bottom:0;*/
+/*}*/
+
+
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*}*/
+/*.main-nav {*/
+/*    padding: 1rem;*/
+/*    background-color: #9e33e5;*/
+/*    border: 2px solid #fff;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    !*height: 200px;*!*/
+/*    !*width: 100%;*!*/
+/*}*/
+/*a {*/
+/*    text-decoration: None;*/
+/*}*/
+/*.container{*/
+/*     padding-right:0;*/
+/*    padding-left:0;*/
+/*    margin-right:auto;*/
+/*    margin-left:auto;*/
+/*    !*width: 100%;*!*/
+/*}*/
+
+/*header {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    background-color: blanchedalmond;*/
+/*}*/
+/*main {*/
+/*    background-color: aquamarine;*/
+/*    !*height: 100%;*!*/
+/*    text-align: center;*/
+/*    margin: 20px;*/
+/*    height: auto;*/
+/*}*/
+/*footer {*/
+/*    background-color: aliceblue;*/
+/*    !*height: 100%;*!*/
+/*    text-align: center;*/
+/*}*/
+/*.main-box {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+
+/*    padding: 3em;*/
+/*}*/
+/*.item {*/
+/*    width: 100%;*/
+/*    !*width: 30%;*!*/
+
+/*}*/
+/*.item-description {*/
+/*    !*width: 30%;*!*/
+/*    border: 1px solid black;*/
+/*}*/
+/*.container {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    flex-direction: column;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    width: 20%;*/
+/*    padding: 1em;*/
+/*}*/
+
+/* ################################################################*/
+
+/*body, html {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background-color: antiquewhite;*/
+/*    height: 100%;*/
+/*}*/
+/*a{*/
+/*    text-decoration: none;*/
+
+/*}*/
+/*.bi-menu-down, .bi-dice-6{*/
+/*    color: white;*/
+/*}*/
+/*strong{*/
+/*    color: white;*/
+/*    font-size: 1em;*/
+/*}*/
+/*main {*/
+/*    height: 90%;*/
+/*    color: white;*/
+/*}*/
+/*.my-search{*/
+/*    background-color: white;*/
+/*    padding: 2em 1em 2em 1em;*/
+/*    height: auto;*/
+/*    text-align: center;*/
+/*    !* width: auto; *!*/
+/*}*/
+/*#search-input {*/
+/*    width: 80%;*/
+/*}*/
+/*#search-button {*/
+/*    height: 100%;*/
+/*}*/
+/*.vehicles-list{*/
+/*    color: black;*/
+/*    height: 100%;*/
+
+/*    !* background-color: whitesmoke; *!*/
+/*}*/
+
+
+
+
+
+
+/*.my-footer {*/
+/*    position: fixed;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    color: white;*/
+/*}*/

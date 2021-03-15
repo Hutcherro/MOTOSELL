@@ -1,0 +1,125 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{#{% block profile %}#}
+{#     <p>{{ user.username }}</p>#}
+{#     <a href="{% url 'addNotice' %}"><p>Nowy</p></a> <!-- DO EDYCJI -->#}
+{#     <a href="{% url 'password_change' %}"><p>Zmień hasło</p></a>#}
+{#     <a href=""><p>Pobierz swoje oferty</p></a>#}
+{#{% endblock %}#}
+
+
+{% block content %}
+{#    <h1 class="text-center p-2"> Samochody dodane przez {{ user.username }} :</h1>#}
+{#    {% for Notice in allNoticeList %}#}
+{##}
+{#         <div class="container">#}
+{#             <div class="row ">#}
+{#                  <div class="col"> <!-- col-sm-5 col-md-4 -->#}
+{##}
+{#            <!--<form action="{{Notice.pk}}/update/" method="POST"> -->#}
+{#            {% csrf_token %}#}
+{##}
+{#            <div class="container-item"> {{ Notice }}  </div>#}
+{#                    <button type="submit">#}
+{#                        <a href="/accounts/profile/{{Notice.pk}}/updateForm/"> edytuj </a>#}
+{#                    </button>#}
+{#                     <button type="submit">#}
+{#                         <a href="/accounts/profile/{{Notice.pk}}/download/"> pobierz </a>#}
+{#                     </button>#}
+{#                      <form action="/accounts/profile/{{Notice.pk}}/delete/" method="POST" class="container-item-delete">#}
+{#                            {% csrf_token %}#}
+{#                          <button type="submit">usuń</button>#}
+{#                      </form>#}
+{##}
+{#<!--            </form>-->#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#  </div>#}
+
+{# <a href="/accounts/profile/{{Notice.pk}}/updateForm/"> edytuj </a> #}
+{# <a href="/accounts/profile/{{Notice.pk}}/download/"> pobierz </a> #}
+{# <a href="/accounts/profile/{{Notice.pk}}/delete/"> delete </a> #}
+
+{#    {% endfor %}#}
+
+
+{#    {% block content %}#}
+    <div class="container p-5">
+            <h1 class="text-center pb-3"> Wszystkie samochody dodane przez {{ user.username }}:</h1>
+
+            {% for notice in allNoticeList %}
+                 <div class="row d-flex bg-light m-4 p-4">
+                    <div class="d-flex w-75 ">
+                        <img src="{% static img %}img/{{ notice.picture }}"
+                             alt="img" width="200"> <!-- height="100%" -->
+
+                        <div class="">
+                            <!-- <p><a href="#" class="text-primary">audi a3</a></p> -->
+                            <p class="view-more ">
+                                <a href="#" class="p-2">
+                                    {{ notice.title }}
+                                </a>
+                            </p>
+
+                            <div class="d-flex  ">
+                                <!-- <ul class="m-2 w-25 d-block">
+                                    <li>2000 cm3</li>
+                                    <li>2007</li>
+
+                                </ul> -->
+                                <table class="m-3 ">
+                                    <tr>
+                                        <td>
+                                            <ul class="m-1">
+                                                <li>rok: {{ notice.production_year }}</li>
+                                            </ul>
+
+                                        </td>
+                                        <td>
+                                            <ul class="m-1">
+                                                <li>Przebieg: {{ notice.mileage }}</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li>{{ notice.cubic_capacity }} cm3</li>
+                                            </ul>
+
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>{{ notice.fuel_type }}</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                  </table>
+                            </div>
+                        </div>
+                    </div>
+
+                  <div class="d-flex w-25 justify-content-end text-center">
+{#                    <div class="w-75">#}
+{##}
+{#                    </div>#}
+                      <div class="w-auto d-flex flex-column p-2">
+                        <a href="/accounts/profile/{{notice.pk}}/updateForm/" class="p-1"> edytuj </a>
+                      <a href="/accounts/profile/{{notice.pk}}/delete/" class="p-1"> usuń </a>
+                      <a href="/accounts/profile/{{notice.pk}}/download/" class="p-1"> pobierz </a>
+                          {% if notice.is_publicated %}
+                              <p>Opublikowane</p>
+                          {% else %}
+                      <a href="/accounts/profile/{{notice.pk}}/publicated/" class="p-1"> publikuj </a>
+                        {% endif %}
+                      </div>
+
+                  </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

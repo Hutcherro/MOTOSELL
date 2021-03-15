@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <div class="d-flex justify-content-center flex-column w-25 p-3 text-center">
+        <h2>Zaloguj się</h2>
+        <form method="post" class="d-flex justify-content-center flex-column">
+            {% csrf_token %}
+            <label for="id_username"> Nazwa użytkownika: </label>
+            <input id="id_username" type="text" name="username">
+            <label for="password"> Hasło: </label>
+            <input id="password" type="password" name="password">
+            <button type="submit" class="btn-primary m-1">Zaloguj</button>
+        </form>
+    </div>
+    </div>
+
+
+{% endblock %}

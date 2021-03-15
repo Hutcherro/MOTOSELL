@@ -1,0 +1,94 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block profile %}
+     <p>{{ user.username }}</p>
+     <a href="{% url 'addNotice' %}"><p>Nowy</p></a> <!-- DO EDYCJI -->
+{#     <a href="{% url 'password_change' %}"><p>Zmień hasło</p></a>#}
+{#     <a href=""><p>Pobierz swoje oferty</p></a>#}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container p-5   ">
+            <h1 class="text-center pb-3"> Wszystkie samochody dostępne na aukcjach</h1>
+            {% for notice in page_obj %}
+                 <div class="notice row d-flex bg-light m-4 p-4 ">
+                    <div class="d-flex w-75 ">
+                        <img src="{% static img %}img/{{ notice.picture }}" alt="img" width="200"> <!-- height="100%" -->
+{#                        <img src="{{ notice.picture }}" alt="img" width="200"> <!-- height="100%" -->#}
+
+                        <div class="">
+                            <!-- <p><a href="#" class="text-primary">audi a3</a></p> -->
+                            <p class="view-more ">
+                                <a href="/{{ notice.pk }}/currentItem/" class="p-2">
+                                    {{ notice.title }}
+                                </a>
+                            </p>
+
+                            <div class="d-flex  ">
+                                <!-- <ul class="m-2 w-25 d-block">
+                                    <li>2000 cm3</li>
+                                    <li>2007</li>
+
+                                </ul> -->
+                                <table class="m-3 ">
+                                    <tr>
+                                        <td>
+                                            <ul class="m-1">
+                                                <li>rok: {{ notice.production_year }}</li>
+                                            </ul>
+
+                                        </td>
+                                        <td>
+                                            <ul class="m-1">
+                                                <li>Przebieg: {{ notice.mileage }}</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li>{{ notice.cubic_capacity }} cm3</li>
+                                            </ul>
+
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>{{ notice.fuel_type }}</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                  </table>
+                            </div>
+                        </div>
+                    </div>
+
+                  <div class="d-block w-25 justify-content-center text-end">
+                    <!-- <p class=""> </p> -->
+                    <strong> {{ notice.price }} zł </strong>
+                    <p class="text-muted"> do negocjacji</p>
+                  </div>
+            </div>
+            {% endfor %}
+                <div class="pagination d-flex justify-content-end">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a> <!-- pierwsza -->
+            <a href="?page={{ page_obj.previous_page_number }}">poprzednia</a>
+        {% endif %}
+
+        <span class="current">
+            Strona {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">następna</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">ostatnia &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+    </div>
+{% endblock %}

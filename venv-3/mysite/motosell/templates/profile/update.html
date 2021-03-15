@@ -1,0 +1,154 @@
+{% extends "main.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form action="/accounts/profile/{{current_notice.pk}}/update/"
+          method="POST" enctype="multipart/form-data"
+          class="text-center border-light p-5 container" onload="document.refresh();">
+        {% csrf_token %}
+        {{ NoticeFormUpdate|crispy }}
+
+        <button type="submit" class="btn bg-primary btn-block my-4"> save </button>
+    </form>
+
+{#    <div class="text-center d-flex justify-content-center">#}
+{#        <div>#}
+{#             <h2>Dodaj nowe ogłoszenie</h2>#}
+{#                <form action="/accounts/profile/{{current_book.pk}}/update/" method="post"#}
+{#               enctype="multipart/form-data" class="d-flex flex-column m-1 ">#}
+{#                 {% csrf_token %}#}
+{#                 {{ NoticeFormUpdate|crispy }}#}
+{#                    <button type="submit" class="btn bg-primary btn-block my-4">Zapisz</button>#}
+{#                    <strong> Pola oznaczone gwiazdką są obowiązkowe !</strong>#}
+{#         </form>#}
+{#         </div>#}
+
+    </div>
+
+{#    <div class="container" >#}
+{#    <a href="{% url 'profile' %}" > Wróć </a>#}
+{#    </div>#}
+
+{% endblock %}
+
+{#{% block content %}#}
+{##}
+{#    <h2 class="text-center"> Rejestracja</h2>#}
+{#    <form action="/accounts/profile/{{current_notice.pk}}/update/"#}
+{#          method="POST" enctype="multipart/form-data" class="">#}
+{#    <form action="/accounts/profile/addNotice/upload/" method="post" #}
+{#          enctype="multipart/form-data">#}
+{#     {% csrf_token %}#}
+        {# Pojedyncze pole       #}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1 ">#}
+{#                <label for="title">Tytuł</label>#}
+{#                <input type="text" class="form-control" id="title" name="title"#}
+{#                       placeholder="Wprowadź tytuł" maxlength="50"#}
+{#                       value="{{ current_notice.title }}" required>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <label for="description">Opis</label>#}
+{#                <input type="text" class="form-control" id="description" name="description"#}
+{#                       placeholder="Podaj opis" maxlength="100"#}
+{#                       value="{{ current_notice.description }}" required>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#         <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <label for="production_year">Rok produkcji</label>#}
+{#                <input type="number" class="form-control" id="production_year" name="production_year"#}
+{#                       placeholder="Podaj rok produkcji"#}
+{#                       value="{{ current_notice.production_year }}" required>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <label for="mileage">Przebieg </label>#}
+{#                <input type="number" class="form-control" id="mileage" name="mileage"#}
+{#                       placeholder="Podaj przebieg" value="{{ current_notice.mileage }}"#}
+{#                       required>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <label for="cubic_capacity">Pojemność silnika </label>#}
+{#                <input type="number" class="form-control" id="cubic_capacity" name="cubic_capacity"#}
+{#                       placeholder="Podaj pojemność silnika wyrażoną w cm3"#}
+{#                       value="{{ current_notice.cubic_capacity }}" required>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <label for="horse_power">Moc silnika </label>#}
+{#                <input type="number" class="form-control" id="horse_power" name="horse_power"#}
+{#                       placeholder="Podaj moc silnika wyrażoną w koniach mechanicznych"#}
+{#                       value="{{ current_notice.horse_power }}" required>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+        {#  ######### PALIWO ##########      #}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <label for="fuel_type">Typ paliwa </label>#}
+{#                <input type="checkbox" class="form-control" id="fuel_type" name="fuel_type"#}
+{#                       placeholder="Wprowadź opis">#}
+{#                <select id="fuel_type" name="fuel_type" >#}
+{#                    <option value="diesel">diesel</option>#}
+{#                    <option value="LPG">lpg</option>#}
+{#                    <option value="benzyna">benzyna</option>#}
+{#                </select>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <label for="price"> Cena </label>#}
+{#                <input type="number" class="form-control" id="price" name="price"#}
+{#                       placeholder="Podaj cenę w zł" value="{{ current_notice.price }}"#}
+{#                       required>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#<input type="hidden" name="author" value="1" id="id_author">#}
+{##}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <p> Obecne zdjęcie: </p>#}
+{#                 <img src="{% static img %}img/{{ current_notice.picture }}"#}
+{#                             alt="img" width="200">#}
+{#                <label for="picture">Nowe zdjęcie </label>#}
+{#                <input type="file" class="form-control" id="picture"#}
+{#                       value="{{ current_notice.picture }}"#}
+{#                       name="picture" required>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="p-1 d-flex justify-content-center">#}
+{#            <div class="form-group w-50 d-flex flex-column justify-content-center p-1">#}
+{#                <div>#}
+{#                    <input type="checkbox" class="" id="is_publicated" name="is_publicated"#}
+{#                    value="{{ current_notice.is_publicated }}">#}
+{#                    <label for="is_publicated">Opublikować ogłoszenie? </label>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{##}
+{#        <div class="d-flex  justify-content-center">#}
+{#            <button type="submit" class="btn btn-primary">Zapisz</button>#}
+{#        </div>#}
+{##}
+{#    </form>#}
+{##}
+{#{% endblock %}#}

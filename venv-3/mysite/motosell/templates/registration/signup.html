@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <div class="d-flex justify-content-center flex-column w-25 p-3 text-center">
+
+        <h2 class="p-2">Rejestracja</h2>
+
+        <form method="post" class="d-flex justify-content-center flex-column">
+            {% csrf_token %}
+            <label for="id_username"> Nazwa użytkownika: </label>
+            <input id="id_username" type="text" name="username">
+            <label for="password"> Hasło: </label>
+            <input id="password" type="password" name="password1">
+            <label for="password"> Powtórz hasło: </label>
+            <input id="password" type="password" name="password2">
+            <button type="submit" class="btn-primary m-1"> Zarejestruj się</button>
+        </form>
+    </div>
+    </div>
+<div class="info d-flex justify-content-center">
+    <div class="">
+        <h2 class="text-center"> Wymagane: </h2>
+         <ul class="">
+             <li>
+                    Twoje hasło nie może być zbyt podobne do Twoich innych danych osobowych
+             </li>
+             <li>
+                 Twoje hasło musi zawierać co najmniej 8 znaków.
+             </li>
+                <li>
+                   Twoje hasło nie może być hasłem powszechnie używanym.
+             </li>
+                <li>
+                    Twoje hasło nie może składać się wyłącznie z liczb.
+                </li>
+        </ul>
+    </div>
+
+    </div>
+
+{% endblock %}
